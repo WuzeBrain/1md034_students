@@ -4,6 +4,15 @@ body {
     margin: 0 auto;
 }
 
+section {
+    margin: 5px 10px;
+}
+
+button:hover {
+    background: cyan;
+    cursor: crosshair;
+}
+
 .warn {
     font-weight: bold;
     color: red;
@@ -27,7 +36,6 @@ body {
     width: 70%;
 }
 
-button:hover {
-    background: cyan;
-    cursor: crosshair;
+#send {
+    margin-top: 50px;
 }
