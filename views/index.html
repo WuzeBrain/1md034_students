@@ -3,110 +3,106 @@
 <html lang="en">
     <head>
         <title>BUUURGERSSS!!!1!</title>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
 
     <body>
         <main>
-            <h1>Welcome to BUUURGERSSS!!!1!</h1>
+            <div id="header">
+                <img src="img/header.jpg">
+                <h1>Welcome to BUUURGERSSS!!!1!</h1>
+            </div>
+
+            <section id="selection">
+                <h3>Select burger</h3>
+                We have multiple tasty alternatives
+
+                <div id="burgers">
+                    <div class="cbox bname ha">Nothing Burger</div>
+                    <div class="cbox bname hb">Giga Burger</div>
+                    <div class="cbox bname hc">Quad Burger</div>
+                    <div class="cbox ia"><img src="img/nothingburger.jpg" alt="Nothing Burger"></div>
+                    <div class="cbox ib"><img src="img/gigaburger.jpg" alt="Giga Burger"></div>
+                    <div class="cbox ic"><img src="img/quadburger.jpg" alt="Quad Burger"></div>
+                    <div class="box la">
+                        <ul>
+                            <li>120g</li>
+                            <li>Only salad. Nothing more, nothing less.</li>
+                            <li>May contain traces of <span class="warn">nuts</span>.</li>
+                        </ul>
+                    </div>
+                    <div class="box lb">
+                        <ul>
+                            <li>90g</li>
+                            <li>Contains an assortment of locally produced vegetables.</li>
+                            <li>100% <span class="info">vegan</span>.</li>
+                        </ul>
+                    </div>
+                    <div class="box lc">
+                        <ul>
+                            <li>128g</li>
+                            <li>Also available in a 50% larger size (Hexa Burger).</li>
+                            <li>101% non-vegan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="order">
+                <h3>Customer Information</h3>
+                Fill in the form below
+
+                <form>
+                    <h4>Delivery information:</h4>
+
+                    <p>
+                        <label for="fullname">Full name</label><br>
+                        <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                    </p>
+                    <p>
+                        <label for="email">E-mail</label><br>
+                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                    </p>
+                    <p>
+                        <label for="street">Street</label><br>
+                        <input type="text" id="street" name="st" placeholder="Street name">
+                    </p>
+                    <p>
+                        <label for="house">House</label><br>
+                        <input type="number" id="house" name="hs" placeholder="House number">
+                    </p>
+
+                    <p>
+                        <label for="payment">Payment options</label><br>
+                        <select id="payment" name="pay">
+                            <option selected="selected">Bitcoin</option>
+                            <option>Bitcoin Cash</option>
+                            <option>Ethereum</option>
+                            <option>Monero</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <input type="radio" id="female"name="ge" value="female">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="male" name="ge" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="undisclosed" name="ge" value="undisclosed" checked="checked">
+                        <label for="undisclosed">Undisclosed</label><br>
+                    </p>
+
+                </form>
+            </section>
+
+            <p>
+                <button type="submit" id="send"><img src="img/checked.jpg" width="10">Send</button>
+            </p>
+
         </main>
-
-        <section id="selection">
-            <h3>Select burger</h3>
-
-            <table id="burgers" width="1200">
-                <thead>
-                    <tr>
-                        <th>Nothing Burger</th>
-                        <th>Giga Burger</th>
-                        <th>Quad Burger</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr align="center">
-                        <td><img src="img/nothingburger.jpg" alt="Nothing Burger" height="200"></td>
-                        <td><img src="img/gigaburger.jpg" alt="Giga Burger" height="200"></td>
-                        <td><img src="img/quadburger.jpg" alt="Quad Burger" height="200"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul>
-                                <li>256g</li>
-                                <li>Only salad. Nothing more, nothing less.</li>
-                                <li>May contain traces of nuts.</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>90g</li>
-                                <li>An assortment of locally produced vegetables.</li>
-                                <li>101% vegan.</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>80g</li>
-                                <li>Also available in a 50% larger size (Hexa Burger).</li>
-                                <li>101% non-vegan.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="contact">
-            <h3>Customer Information</h3>
-
-            <form>
-                <h4>Delivery information:</h4>
-
-                <p>
-                    <label for="fullname">Full name</label><br>
-                    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
-                </p>
-                <p>
-                    <label for="email">E-mail</label><br>
-                    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-                </p>
-                <p>
-                    <label for="street">Street</label><br>
-                    <input type="text" id="street" name="st" placeholder="Street name">
-                </p>
-                <p>
-                    <label for="house">House</label><br>
-                    <input type="number" id="house" name="hs" placeholder="House number">
-                </p>
-
-                <p>
-                    <label for="payment">Payment options</label><br>
-                    <select id="payment" name="pay">
-                        <option selected="selected">Bitcoin</option>
-                        <option>Bitcoin Cash</option>
-                        <option>Ethereum</option>
-                        <option>Monero</option>
-                    </select>
-                </p>
-
-                <p>
-                    <input type="radio" id="female"name="ge" value="female">
-                    <label for="female">Female</label><br>
-                    <input type="radio" id="male" name="ge" value="male">
-                    <label for="male">Male</label><br>
-                    <input type="radio" id="undisclosed" name="ge" value="undisclosed" checked="checked">
-                    <label for="undisclosed">Undisclosed</label><br>
-                </p>
-
-            </form>
-        </section>
-
-        <p>
-            <button type="submit"><img src="img/checked.jpg" width="10">Send</button>
-        </p>
-
         <hr>
-        <footer>
-            &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
-        </footer>
+            <footer>
+                &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
+            </footer>
     </body>
 </html>

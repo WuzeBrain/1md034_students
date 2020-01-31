@@ -33,21 +33,21 @@ Create an index.html file which contains:
 
 ## 03 CSS
 
-- [ ] Create style.css and link to it from index.html
+- [X] Create style.css and link to it from index.html
 
 Add the following style/behaviour to your website (mostly in style.css but also requiring changes in index.html):
-- [ ] Define a base line font for your site by putting the style rule on "body"
-- [ ] Define a larger base line font size
-- [ ] A CSS rule to make the allergy information bold
-- [ ] Define text and background color for one of your two sections (burger selection and customer information)
-- [ ] Create an empty style definition for the section with unchanged text and background
-- [ ] Change the cursor and background when hovering over the order button
-- [ ] Define a table width and center it
-- [ ] Add margins to the sections and the order button
-- [ ] Add a border to the two sections
-- [ ] Add an image after your headline and make it slightly transparent
-- [ ] Place the image behind your headline to finalize your header
-- [ ] Use a grid layout instead of tables for the burger selection section
+- [X] Define a base line font for your site by putting the style rule on "body"
+- [X] Define a larger base line font size
+- [X] A CSS rule to make the allergy information bold
+- [X] Define text and background color for one of your two sections (burger selection and customer information)
+- [X] Create an empty style definition for the section with unchanged text and background
+- [X] Change the cursor and background when hovering over the order button
+- [X] Define a table width and center it
+- [X] Add margins to the sections and the order button
+- [X] Add a border to the two sections
+- [X] Add an image after your headline and make it slightly transparent
+- [X] Place the image behind your headline to finalize your header
+- [X] Use a grid layout instead of tables for the burger selection section
 
 
 ## 04 JavaScript and Vue

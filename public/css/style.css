@@ -1,0 +1,122 @@
+body {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 13pt;
+    margin: 0 auto;
+}
+
+section {
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+button:hover {
+    background: cyan;
+    cursor: crosshair;
+}
+
+
+.warn {
+    font-weight: bold;
+    color: red;
+}
+
+.info {
+    font-weight: bold;
+    color: #7FFF7F;
+}
+
+.box, .cbox {
+    padding: 5px;
+}
+
+.cbox {
+    text-align: center;
+}
+
+.bname {
+    font-weight: bold;
+    font-size: 120%
+}
+
+
+#header {
+    height: 400px;
+    margin: 5px 10px;
+    overflow: hidden;
+}
+
+#header > img {
+    width: 100%;
+    height: auto;
+    opacity: .5;
+}
+
+#header > h1 {
+    position: absolute;
+    margin-top: -420px;
+    padding: 50px 100px;
+}
+
+
+#selection {
+    background-color: black;
+    color: white;
+    border: 2px dashed white;
+}
+
+#burgers {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 30% 30% 30%;
+    margin-top: 25px;
+}
+
+#burgers img {
+    height: 200px;
+}
+
+.ha {
+    grid-column: 1;
+}
+.hb {
+    grid-column: 2;
+}
+.hc {
+    grid-column: 3;
+}
+
+.ia {
+    grid-row: 2;
+    grid-column: 1;
+}
+.ib {
+    grid-row: 2;
+    grid-column: 2;
+}
+.ic {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+.la {
+    grid-row: 3;
+    grid-column: 1;
+}
+.lb {
+    grid-row: 3;
+    grid-column: 2;
+}
+.lc {
+    grid-row: 3;
+    grid-column: 3;
+}
+
+
+#order {
+    border: 2px dashed black;
+}
+
+#send {
+    margin-top: 30px;
+    margin-left: 10px;
+}
