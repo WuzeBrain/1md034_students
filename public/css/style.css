@@ -6,6 +6,7 @@ body {
 
 section {
     margin: 5px 10px;
+    padding: 10px 10px;
 }
 
 button:hover {
@@ -26,10 +27,11 @@ button:hover {
 #selection {
     background: black;
     color: white;
+    border: 2px dashed white;
 }
 
 #order {
-
+    border: 2px dashed black;
 }
 
 #burgers {
