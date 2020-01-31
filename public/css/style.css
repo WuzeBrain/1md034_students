@@ -2,6 +2,8 @@ body {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 13pt;
     margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 section {
@@ -14,7 +16,12 @@ button:hover {
     cursor: crosshair;
 }
 
+footer {
+    margin-left: 5px;
+}
 
+
+/* text highlights */
 .warn {
     font-weight: bold;
     color: red;
@@ -25,6 +32,12 @@ button:hover {
     color: #7FFF7F;
 }
 
+.bname {
+    font-weight: bold;
+    font-size: 120%
+}
+
+/* boxes */
 .box, .cbox {
     padding: 5px;
 }
@@ -33,14 +46,9 @@ button:hover {
     text-align: center;
 }
 
-.bname {
-    font-weight: bold;
-    font-size: 120%
-}
-
 
 #header {
-    height: 400px;
+    height: 200px;
     margin: 5px 10px;
     overflow: hidden;
 }
@@ -75,6 +83,7 @@ button:hover {
     height: 200px;
 }
 
+/* burger column headers */
 .ha {
     grid-column: 1;
 }
@@ -85,6 +94,7 @@ button:hover {
     grid-column: 3;
 }
 
+/* burger images */
 .ia {
     grid-row: 2;
     grid-column: 1;
@@ -98,6 +108,7 @@ button:hover {
     grid-column: 3;
 }
 
+/* burger info lists */
 .la {
     grid-row: 3;
     grid-column: 1;
@@ -119,4 +130,8 @@ button:hover {
 #send {
     margin-top: 30px;
     margin-left: 10px;
+}
+
+#send > img {
+    width: 10px;
 }
