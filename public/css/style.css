@@ -10,5 +10,14 @@ body {
 
 .info {
     font-weight: bold;
-    color: green;
+    color: #7FFF7F;
+}
+
+#selection {
+    background: black;
+    color: white;
+}
+
+#order {
+
 }
