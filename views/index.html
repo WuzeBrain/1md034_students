@@ -11,13 +11,10 @@
             <h1>Welcome to BUUURGERSSS!!!1!</h1>
         </main>
 
-        <section>
+        <section id="selection">
             <h3>Select burger</h3>
-            ...
-        </section>
 
-        <section>
-            <table width="1200">
+            <table id="burgers" width="1200">
                 <thead>
                     <tr>
                         <th>Nothing Burger</th>
@@ -56,6 +53,27 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <section id="contact">
+            <h3>Customer Information</h3>
+            <h4>Delivery information:</h4>
+            <p>
+                <label for="fullname">Full name</label><br>
+                <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
+            </p>
+            <p>
+                <label for="email">E-mail</label><br>
+                <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+            </p>
+            <p>
+                <label for="street">Street</label><br>
+                <input type="text" id="street" name="st" placeholder="Street name" />
+            </p>
+            <p>
+                <label for="house">House</label><br>
+                <input type="number" id="house" name="hs" placeholder="House number" />
+            </p>
         </section>
 
         <hr>
