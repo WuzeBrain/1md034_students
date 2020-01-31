@@ -15,6 +15,7 @@ button:hover {
 }
 
 
+/* text highlights */
 .warn {
     font-weight: bold;
     color: red;
@@ -25,17 +26,18 @@ button:hover {
     color: #7FFF7F;
 }
 
+.bname {
+    font-weight: bold;
+    font-size: 120%
+}
+
+/* boxes */
 .box, .cbox {
     padding: 5px;
 }
 
 .cbox {
     text-align: center;
-}
-
-.bname {
-    font-weight: bold;
-    font-size: 120%
 }
 
 
@@ -75,6 +77,7 @@ button:hover {
     height: 200px;
 }
 
+/* burger column headers */
 .ha {
     grid-column: 1;
 }
@@ -85,6 +88,7 @@ button:hover {
     grid-column: 3;
 }
 
+/* burger images */
 .ia {
     grid-row: 2;
     grid-column: 1;
@@ -98,6 +102,7 @@ button:hover {
     grid-column: 3;
 }
 
+/* burger info lists */
 .la {
     grid-row: 3;
     grid-column: 1;
