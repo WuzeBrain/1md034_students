@@ -2,3 +2,13 @@ body {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 13pt;
 }
+
+.warn {
+    font-weight: bold;
+    color: red;
+}
+
+.info {
+    font-weight: bold;
+    color: green;
+}
