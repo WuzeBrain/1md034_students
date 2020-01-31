@@ -14,6 +14,7 @@ button:hover {
     cursor: crosshair;
 }
 
+
 .warn {
     font-weight: bold;
     color: red;
@@ -24,29 +25,49 @@ button:hover {
     color: #7FFF7F;
 }
 
+
+#header {
+    height: 400px;
+    margin: 5px 10px;
+    overflow: hidden;
+}
+
+#header > img {
+    width: 100%;
+    height: auto;
+    opacity: .5;
+}
+
+#header > h1 {
+    position: absolute;
+    margin-top: -420px;
+    padding: 50px 100px;
+}
+
+
 #selection {
     background-color: black;
     color: white;
     border: 2px dashed white;
 }
 
+#burgers {
+    width: 80%;
+}
+
+#burgers img {
+    height: 200px;
+}
+
+#bimgs {
+    text-align: center;
+}
+
+
 #order {
     border: 2px dashed black;
 }
 
-#burgers {
-    width: 70%;
-}
-
 #send {
     margin-top: 50px;
-}
-
-#header {
-    margin: 5px 10px;
-}
-
-#himg {
-    width: 100%;
-    opacity: .8;
 }
