@@ -1,6 +1,7 @@
 body {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 13pt;
+    margin: 0 auto;
 }
 
 .warn {
@@ -20,6 +21,10 @@ body {
 
 #order {
 
+}
+
+#burgers {
+    width: 70%;
 }
 
 button:hover {
