@@ -8,7 +8,7 @@ Before you submit the different parts of your lab, make sure that your project f
 
 ## 01 Git
 
-- [ ] Fork and clone the 1md034_students repository
+- [X] Fork and clone the 1md034_students repository
 
 
 ## 02 HTML
@@ -22,7 +22,7 @@ Create an index.html file which contains:
 - [ ] A section to select burgers that contains at least three items. Each item has at least:
 	- [ ] A name
 	- [ ] An image
-	- [ ] Information about allergies 
+	- [ ] Information about allergies
 - [ ] A section to collect customer information:
 	- [ ] First- and Last Name (in one field)
 	- [ ] E-Mail Address
@@ -56,7 +56,7 @@ Add the following style/behaviour to your website (mostly in style.css but also 
 - [ ] Link to js_script.js, vue_script.js as well as vue.js in index.html
 - [ ] Add a menuItem constructor with relevant properties to js_script.js
 - [ ] Also use your menuItem constructor to instantiate a total of five burgers in js_script.js
-- [ ] Add the Vue instance example code to vue_script.js 
+- [ ] Add the Vue instance example code to vue_script.js
 - [ ] Update js_script.js with your JSFiddle code and update vue_script.js with your Vue version
 - [ ] Update js_script.js and vue_script.js again with your array + loop solutions
 - [ ] Rewrite js_script.js and index.html to insert your five burgers dynamically to the burger selection section using JavaScript
@@ -65,7 +65,7 @@ Add the following style/behaviour to your website (mostly in style.css but also 
 - [ ] Remove the menuItem constructor and the instantiation of your five burgers from js_script.js
 - [ ] Update vue_script.js to get the burgers from menu.js instead
 - [ ] Create an event listener in js_script.js connected to your order button
-- [ ] Add a function to js_script.js connected to the order button in index.html that collects the user's input from the text boxes, the gender and all items on the order (that have the checkbox checked) into an array and also prints out the contents to your console 
+- [ ] Add a function to js_script.js connected to the order button in index.html that collects the user's input from the text boxes, the gender and all items on the order (that have the checkbox checked) into an array and also prints out the contents to your console
 - [ ] Comment out your previous event listener and use Vue's corresponding functionality in vue_script.js and index.html to react on button presses
 - [ ] Use Vue's model binding to collect the user's input
 - [ ] Use Vue to print out a summary of the user's input to the bottom of your page when the order button is pressed
@@ -86,7 +86,7 @@ Add the following style/behaviour to your website (mostly in style.css but also 
     - [ ] The order's location on the map
     - [ ] The ordered burger(-s)
     - [ ] The customer's information
-    
+
 ## Optional
 - [ ] Set the orderID on the server side so that multiple customers can add orders
 - [ ] Only allow the order to be sent if all necessary information is provided
