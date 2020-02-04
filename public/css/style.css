@@ -32,11 +32,6 @@ footer {
     color: #7FFF7F;
 }
 
-.bname {
-    font-weight: bold;
-    font-size: 120%
-}
-
 /* boxes */
 .box, .cbox {
     padding: 5px;
@@ -79,47 +74,35 @@ footer {
     margin-top: 25px;
 }
 
-#burgers img {
+.burger {
+    display: grid;
+}
+
+/* burgers */
+.ba {
+    grid-column: 1;
+}
+.bb {
+    grid-column: 2;
+}
+.bc {
+    grid-column: 3;
+}
+
+/* contents of a burger box */
+.bname {
+    font-weight: bold;
+    font-size: 120%;
+    grid-row: 1;
+}
+.bimg {
+    grid-row: 2;
+}
+.bimg > img {
     height: 200px;
 }
-
-/* burger column headers */
-.ha {
-    grid-column: 1;
-}
-.hb {
-    grid-column: 2;
-}
-.hc {
-    grid-column: 3;
-}
-
-/* burger images */
-.ia {
-    grid-row: 2;
-    grid-column: 1;
-}
-.ib {
-    grid-row: 2;
-    grid-column: 2;
-}
-.ic {
-    grid-row: 2;
-    grid-column: 3;
-}
-
-/* burger info lists */
-.la {
+.blist {
     grid-row: 3;
-    grid-column: 1;
-}
-.lb {
-    grid-row: 3;
-    grid-column: 2;
-}
-.lc {
-    grid-row: 3;
-    grid-column: 3;
 }
 
 
