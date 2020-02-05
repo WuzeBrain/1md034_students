@@ -1,5 +1,3 @@
-"use strict"
-
 class MenuItem {
     constructor(name, img, size, desc, info) {
         this.name = name;
@@ -50,8 +48,28 @@ let menu = [
         "F**k Yeah!",
         "Eat at your own risk."
     )
-]
+];
 
-for (var burger of menu) {
-    console.log(burger.summary());
+function createBurger(n) {
+	let burger = menu[n].summary();
+    let text = document.createTextNode(burger);
+    let elem = document.createElement("li");
+    elem.appendChild(text);
+    return elem;
 }
+
+let burgers = document.createElement("ul");
+burgers.appendChild(createBurger(0));
+burgers.appendChild(createBurger(1));
+burgers.appendChild(createBurger(2));
+burgers.appendChild(createBurger(3));
+burgers.appendChild(createBurger(4));
+document.getElementById("myID").appendChild(burgers);
+
+
+// const vm = new Vue({
+//   el: '#myID',
+//   data: {
+//     arbitraryVariableName: 'Välj en burgare ' + new Date()
+//   }
+// })
