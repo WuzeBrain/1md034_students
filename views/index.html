@@ -5,9 +5,9 @@
         <title>BUUURGERSSS!!!1!</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://vuejs.org/js/vue.js" defer></script>
         <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js" defer></script>
-        <script src="https://vuejs.org/js/vue.js" defer></script>
     </head>
 
     <body>
@@ -20,7 +20,19 @@
             <section id="selection">
                 <h3>Select burger</h3>
                 We have multiple tasty alternatives
-                <div id="burgers"></div>
+                <div id="burgers">
+                    <div class="box burger" v-for="b of menu">
+                        <div class="cbox bname">{{b.name}}</div>
+                        <div class="cbox bimg"><img :src="b.img" :alt="b.name"></div>
+                        <div class="box blist">
+                            <ul>
+                                <li>{{b.size}}g</li>
+                                <li>{{b.desc}}</li>
+                                <li>{{b.info}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="order">
