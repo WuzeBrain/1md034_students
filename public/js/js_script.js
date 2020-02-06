@@ -7,12 +7,52 @@ class MenuItem {
         this.info = info;
     }
 
-    summary() {
-        return this.name + ", " + this.size + "g"
+    getName() {
+        let name = document.createTextNode(this.name);
+        let box = document.createElement("div");
+        box.className = "cbox bname";
+        box.appendChild(name);
+        return box;
+    }
+
+    getImg() {
+        let img = document.createElement("img");
+        img.src = this.img;
+        img.alt = this.name;
+        let box = document.createElement("div");
+        box.className = "cbox bimg";
+        box.appendChild(img);
+        return box;
+    }
+
+    getDetails() {
+        let size = document.createElement("li");
+        size.appendChild(document.createTextNode(this.size + "g"));
+        let desc = document.createElement("li");
+        desc.appendChild(document.createTextNode(this.desc));
+        let info = document.createElement("li");
+        info.appendChild(document.createTextNode(this.info));
+        let list = document.createElement("ul");
+        list.appendChild(size);
+        list.appendChild(desc);
+        list.appendChild(info);
+        let box = document.createElement("div");
+        box.className = "box blist";
+        box.appendChild(list);
+        return box;
+    }
+
+    show() {
+        let box = document.createElement("div");
+        box.className = "box burger";
+        box.appendChild(this.getName());
+        box.appendChild(this.getImg());
+        box.appendChild(this.getDetails());
+        return box;
     }
 }
 
-let menu = [
+const menu = [
     new MenuItem(
         "Nothing Burger",
         "img/nothingburger.jpg",
@@ -50,15 +90,7 @@ let menu = [
     )
 ];
 
-function addBurger(bs, b) {
-    let text = document.createTextNode(b.summary());
-    let elem = document.createElement("li");
-    elem.appendChild(text);
-    bs.appendChild(elem);
+const burgers = document.getElementById("burgers");
+for (let b of menu) {
+    burgers.appendChild(b.show());
 }
-
-let burgers = document.createElement("ul");
-for (var b of menu) {
-    addBurger(burgers, b);
-}
-document.getElementById("myID").appendChild(burgers);
