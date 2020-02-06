@@ -50,26 +50,15 @@ let menu = [
     )
 ];
 
-function createBurger(n) {
-	let burger = menu[n].summary();
-    let text = document.createTextNode(burger);
+function addBurger(bs, b) {
+    let text = document.createTextNode(b.summary());
     let elem = document.createElement("li");
     elem.appendChild(text);
-    return elem;
+    bs.appendChild(elem);
 }
 
 let burgers = document.createElement("ul");
-burgers.appendChild(createBurger(0));
-burgers.appendChild(createBurger(1));
-burgers.appendChild(createBurger(2));
-burgers.appendChild(createBurger(3));
-burgers.appendChild(createBurger(4));
+for (var b of menu) {
+    addBurger(burgers, b);
+}
 document.getElementById("myID").appendChild(burgers);
-
-
-// const vm = new Vue({
-//   el: '#myID',
-//   data: {
-//     arbitraryVariableName: 'Välj en burgare ' + new Date()
-//   }
-// })

@@ -50,20 +50,14 @@ let menu = [
     )
 ];
 
-function createBurger(n) {
-    return "<li>" + menu[n].summary() + "</li>";
-}
-
 const vm = new Vue({
     el: '#myID',
     data: {
-        burgers:
-        "<ul>" +
-        createBurger(0) +
-        createBurger(1) +
-        createBurger(2) +
-        createBurger(3) +
-        createBurger(4) +
-        "</ul>"
+        burgers: menu
+    },
+    methods: {
+    	show: function (b) {
+        	return b.summary();
+        }
     }
 })
