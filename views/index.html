@@ -5,8 +5,8 @@
         <title>BUUURGERSSS!!!1!</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="https://vuejs.org/js/vue.js" defer></script>
-        <script type="text/javascript" src="js/menu.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
         <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js" defer></script>
     </head>
@@ -23,8 +23,13 @@
                 We have multiple tasty alternatives
                 <div id="burgers">
                     <div class="box burger" v-for="b of menu">
-                        <div class="cbox bname">{{b.name}}</div>
-                        <div class="cbox bimg"><img :src="b.img" :alt="b.name"></div>
+                        <div class="cbox bname">
+                            <input type="checkbox" :id="b.name" :value="b.name" v-model="burgers"></input>
+                            <label :for="b.name">{{b.name}}</label>
+                        </div>
+                        <div class="cbox bimg">
+                            <img :src="b.img" :alt="b.name">
+                        </div>
                         <div class="box blist">
                             <ul>
                                 <li>{{b.size}}g</li>
@@ -45,25 +50,29 @@
 
                     <p>
                         <label for="fullname">Full name</label><br>
-                        <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                        <input type="text" id="fullname" name="fn" v-model="fullname"
+                        required="required" placeholder="First- and Last name">
                     </p>
                     <p>
                         <label for="email">E-mail</label><br>
-                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                        <input type="email" id="email" name="em" v-model="email"
+                        required="required" placeholder="E-mail address">
                     </p>
                     <p>
                         <label for="street">Street</label><br>
-                        <input type="text" id="street" name="st" placeholder="Street name">
+                        <input type="text" id="street" name="st" v-model="street"
+                        placeholder="Street name">
                     </p>
                     <p>
                         <label for="house">House</label><br>
-                        <input type="number" id="house" name="hs" placeholder="House number">
+                        <input type="number" id="house" name="hs" v-model.number="house"
+                        placeholder="House number">
                     </p>
 
                     <p>
                         <label for="payment">Payment options</label><br>
-                        <select id="payment" name="pay">
-                            <option selected="selected">Bitcoin</option>
+                        <select id="payment" name="pay" v-model="payment">
+                            <option>Bitcoin</option>
                             <option>Bitcoin Cash</option>
                             <option>Ethereum</option>
                             <option>Monero</option>
@@ -71,25 +80,34 @@
                     </p>
 
                     <p>
-                        <input type="radio" id="female"name="ge" value="female">
+                        <input type="radio" id="female" name="ge"
+                        v-model="gender" value="female">
                         <label for="female">Female</label><br>
-                        <input type="radio" id="male" name="ge" value="male">
+                        <input type="radio" id="male" name="ge"
+                        v-model="gender" value="male">
                         <label for="male">Male</label><br>
-                        <input type="radio" id="undisclosed" name="ge" value="undisclosed" checked="checked">
+                        <input type="radio" id="undisclosed" name="ge"
+                        v-model="gender" value="undisclosed">
                         <label for="undisclosed">Undisclosed</label><br>
                     </p>
 
                 </form>
             </section>
-
             <p>
-                <button type="submit" id="send"><img src="img/checked.jpg">Send</button>
+                <button type="submit" id="send" @click="send()">
+                    <img src="img/checked.jpg">Send
+                </button>
             </p>
 
+            <section id="summary" v-if="order != null">
+                Order summary:<br>
+                <span v-for="x of order">{{show(x)}}<br></span>
+            </section>
         </main>
+
         <hr>
-            <footer>
-                &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
-            </footer>
+        <footer>
+            &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
+        </footer>
     </body>
 </html>

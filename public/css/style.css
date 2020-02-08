@@ -107,3 +107,7 @@ footer {
 #send > img {
     width: 10px;
 }
+
+#summary {
+    border: 2px dashed grey;
+}
