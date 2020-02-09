@@ -84,10 +84,9 @@
                     </p>
 
                     <div class="view-box">
-                        <div id="dots" @click="addOrder">
-                            <div v-for="(order, key) in orders"
-                            :style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                            {{key}}
+                        <div id=dots @click="displayOrder">
+                            <div :style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                            T
                             </div>
                         </div>
                     </div>
@@ -95,14 +94,14 @@
                 </form>
             </section>
             <p>
-                <button type="submit" id="send" @click="send()">
+                <button type="submit" id="send" @click="addOrder">
                     <img src="img/checked.jpg">Send
                 </button>
             </p>
 
-            <section id="summary" v-if="order != null">
+            <section id="summary" v-if="order.fields != null">
                 Order summary:<br>
-                <span v-for="field of order">{{show(field)}}<br></span>
+                <span v-for="field of order.fields">{{show(field)}}<br></span>
             </section>
         </main>
 
