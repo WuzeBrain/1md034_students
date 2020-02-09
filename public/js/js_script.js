@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // function valueOf(id) {
 //     return document.getElementById(id).value;
@@ -9,8 +9,6 @@
 //     let form = [
 //         "fullname",
 //         "email",
-//         "street",
-//         "house",
 //         "payment"
 //     ].map(valueOf);
 //     for (let b of document.getElementsByName("ge")) {
