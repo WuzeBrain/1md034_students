@@ -63,7 +63,8 @@ const vm = new Vue({
             /* This function returns the next available key (order number) in
             * the orders object, it works under the assumptions that all keys
             * are integers. */
-            let lastOrder = Object.keys(this.orders).reduce(Math.max, 0);
+            let lastOrder = Object.keys(this.orders).reduce(
+                (last, next) => Math.max(last, next), 0);
             return lastOrder + 1;
         },
 
