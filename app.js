@@ -35,6 +35,7 @@ app.get('/dispatcher', function(req, res) {
 // prepare for multiple instances of data if necessary
 function Data() {
   this.orders = {};
+  this.orderId = 0;
 }
 
 /*
@@ -42,7 +43,7 @@ function Data() {
 */
 Data.prototype.addOrder = function(order) {
   // Store the order in an "associative array" with orderId as key
-  this.orders[order.orderId] = order;
+  this.orders[this.orderId++] = order;
 };
 
 Data.prototype.getAllOrders = function() {
@@ -62,7 +63,6 @@ io.on('connection', function(socket) {
     // note the use of io instead of socket
     io.emit('currentQueue', { orders: data.getAllOrders() });
   });
-
 });
 
 /* eslint-disable-next-line no-unused-vars */

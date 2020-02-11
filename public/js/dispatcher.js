@@ -19,4 +19,7 @@ const vm = new Vue({
             this.orders = data.orders;
         }.bind(this));
     },
+    methods: {
+        formatInfo: (info) => info[0] + " (" + info.slice(1) + ")"
+    }
 });

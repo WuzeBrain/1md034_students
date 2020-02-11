@@ -5,8 +5,7 @@
         <title>BUUURGERSSS!!!1!</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/deli-very.css">
-        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="/vue/vue.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="js/menu.js"></script>
         <script src="js/js_script.js" defer></script>
@@ -73,35 +72,44 @@
 
                     <p>
                         <input type="radio" id="female" name="ge"
-                        v-model="gender" value="female">
+                        v-model="gender" value="Female">
                         <label for="female">Female</label><br>
                         <input type="radio" id="male" name="ge"
-                        v-model="gender" value="male">
+                        v-model="gender" value="Male">
                         <label for="male">Male</label><br>
                         <input type="radio" id="undisclosed" name="ge"
-                        v-model="gender" value="undisclosed">
+                        v-model="gender" value="Undisclosed">
                         <label for="undisclosed">Undisclosed</label><br>
                     </p>
-
-                    <div class="view-box">
-                        <div id=dots @click="displayOrder">
-                            <div :style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                            T
+                    
+                    <p>
+                        Please mark your desired delivery location on the map
+                        <div id="map-box">
+                            <div @click="displayOrder">
+                                <div :style="{left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                    T
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </p>
 
                 </form>
             </section>
             <p>
                 <button type="submit" id="send" @click="addOrder">
-                    <img src="img/checked.jpg">Send
+                    <img src="img/checked.jpg"> Send
                 </button>
             </p>
 
-            <section id="summary" v-if="order.fields != null">
-                Order summary:<br>
-                <span v-for="field of order.fields">{{show(field)}}<br></span>
+            <section id="summary" v-if="order.info.length !== 0">
+                <h3>Order confirmation</h3>
+                <h4>Customer details</h4>
+                <div class="capitalized" v-for="entry of order.info">
+                    {{show(entry)}}<br>
+                </div>
+                <h4>Order summary</h4>
+                <ul>
+                    <li v-for="item in order.items">{{item}}</li>
             </section>
         </main>
 
