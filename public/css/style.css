@@ -1,6 +1,6 @@
 body {
     font-family: "Comic Sans MS", sans-serif;
-    font-size: 13pt;
+    font-size: 12pt;
     margin: 0 auto;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -12,8 +12,8 @@ section {
 }
 
 button:hover {
-    background: cyan;
-    cursor: crosshair;
+    background-color: lightyellow;
+    cursor: pointer;
 }
 
 footer {
@@ -32,9 +32,8 @@ footer {
     color: #7FFF7F;
 }
 
-.bname {
-    font-weight: bold;
-    font-size: 120%
+.capitalized::first-letter {
+    text-transform: capitalize;
 }
 
 /* boxes */
@@ -76,50 +75,57 @@ footer {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: 30% 30% 30%;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
-#burgers img {
-    height: 200px;
+.burger {
+    display: grid;
 }
 
-/* burger column headers */
-.ha {
-    grid-column: 1;
+/* contents of a burger box */
+.bname {
+    font-weight: bold;
+    font-size: 120%;
+    grid-row: 1;
 }
-.hb {
-    grid-column: 2;
-}
-.hc {
-    grid-column: 3;
-}
-
-/* burger images */
-.ia {
+.bimg {
     grid-row: 2;
-    grid-column: 1;
 }
-.ib {
-    grid-row: 2;
-    grid-column: 2;
+.bimg > img {
+    height: 250px;
 }
-.ic {
-    grid-row: 2;
-    grid-column: 3;
+.blist {
+    grid-row: 3;
 }
 
-/* burger info lists */
-.la {
-    grid-row: 3;
-    grid-column: 1;
+
+#map-box {
+	width: 90%;
+	height: 50vh;
+	overflow: scroll;
+	border: 1px solid rgba(0,0,0,0.4);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
-.lb {
-    grid-row: 3;
-    grid-column: 2;
+
+#map-box > div {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-image: url(/img/polacks.jpg);
+	background-repeat: no-repeat;
+	width: 1920px;
+	height: 1078px;
+	cursor: crosshair;
 }
-.lc {
-    grid-row: 3;
-    grid-column: 3;
+
+#map-box > div > div {
+	position: absolute;
+	background-color: black;
+	color: white;
+	border-radius: 10px;
+	width:20px;
+	height:20px;
+	text-align: center;
 }
 
 
@@ -128,10 +134,16 @@ footer {
 }
 
 #send {
-    margin-top: 30px;
-    margin-left: 10px;
+    margin: 20px 10px;
+    font-weight: bold;
+    font-size: 110%;
 }
 
 #send > img {
-    width: 10px;
+    height: 1em;
+}
+
+
+#summary {
+    border: 2px dashed grey;
 }

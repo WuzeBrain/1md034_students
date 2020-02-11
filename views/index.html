@@ -5,6 +5,11 @@
         <title>BUUURGERSSS!!!1!</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="/vue/vue.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
+        <script src="js/js_script.js" defer></script>
+        <script src="js/vue_script.js" defer></script>
     </head>
 
     <body>
@@ -17,37 +22,22 @@
             <section id="selection">
                 <h3>Select burger</h3>
                 We have multiple tasty alternatives
-
                 <div id="burgers">
-                    <!-- names -->
-                    <div class="cbox bname ha">Nothing Burger</div>
-                    <div class="cbox bname hb">Giga Burger</div>
-                    <div class="cbox bname hc">Quad Burger</div>
-                    <!-- images -->
-                    <div class="cbox ia"><img src="img/nothingburger.jpg" alt="Nothing Burger"></div>
-                    <div class="cbox ib"><img src="img/gigaburger.jpg" alt="Giga Burger"></div>
-                    <div class="cbox ic"><img src="img/quadburger.jpg" alt="Quad Burger"></div>
-                    <!-- info -->
-                    <div class="box la">
-                        <ul>
-                            <li>120g</li>
-                            <li>Only salad. Nothing more, nothing less.</li>
-                            <li>May contain traces of <span class="warn">nuts</span>.</li>
-                        </ul>
-                    </div>
-                    <div class="box lb">
-                        <ul>
-                            <li>90g</li>
-                            <li>Contains an assortment of locally produced vegetables.</li>
-                            <li>100% <span class="info">vegan</span>.</li>
-                        </ul>
-                    </div>
-                    <div class="box lc">
-                        <ul>
-                            <li>128g</li>
-                            <li>Also available in a 50% larger size (Hexa Burger).</li>
-                            <li>101% non-vegan.</li>
-                        </ul>
+                    <div class="box burger" v-for="b of menu">
+                        <div class="cbox bname">
+                            <input type="checkbox" :id="b.name" :value="b.name" v-model="burgers"></input>
+                            <label :for="b.name">{{b.name}}</label>
+                        </div>
+                        <div class="cbox bimg">
+                            <img :src="b.img" :alt="b.name">
+                        </div>
+                        <div class="box blist">
+                            <ul>
+                                <li>{{b.size}}g</li>
+                                <li>{{b.desc}}</li>
+                                <li>{{b.info}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -61,25 +51,19 @@
 
                     <p>
                         <label for="fullname">Full name</label><br>
-                        <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                        <input type="text" id="fullname" name="fn" v-model="fullname"
+                        required="required" placeholder="First- and Last name">
                     </p>
                     <p>
                         <label for="email">E-mail</label><br>
-                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-                    </p>
-                    <p>
-                        <label for="street">Street</label><br>
-                        <input type="text" id="street" name="st" placeholder="Street name">
-                    </p>
-                    <p>
-                        <label for="house">House</label><br>
-                        <input type="number" id="house" name="hs" placeholder="House number">
+                        <input type="email" id="email" name="em" v-model="email"
+                        required="required" placeholder="E-mail address">
                     </p>
 
                     <p>
                         <label for="payment">Payment options</label><br>
-                        <select id="payment" name="pay">
-                            <option selected="selected">Bitcoin</option>
+                        <select id="payment" name="pay" v-model="payment">
+                            <option>Bitcoin</option>
                             <option>Bitcoin Cash</option>
                             <option>Ethereum</option>
                             <option>Monero</option>
@@ -87,25 +71,51 @@
                     </p>
 
                     <p>
-                        <input type="radio" id="female"name="ge" value="female">
+                        <input type="radio" id="female" name="ge"
+                        v-model="gender" value="Female">
                         <label for="female">Female</label><br>
-                        <input type="radio" id="male" name="ge" value="male">
+                        <input type="radio" id="male" name="ge"
+                        v-model="gender" value="Male">
                         <label for="male">Male</label><br>
-                        <input type="radio" id="undisclosed" name="ge" value="undisclosed" checked="checked">
+                        <input type="radio" id="undisclosed" name="ge"
+                        v-model="gender" value="Undisclosed">
                         <label for="undisclosed">Undisclosed</label><br>
+                    </p>
+                    
+                    <p>
+                        Please mark your desired delivery location on the map
+                        <div id="map-box">
+                            <div @click="displayOrder">
+                                <div :style="{left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                    T
+                                </div>
+                            </div>
+                        </div>
                     </p>
 
                 </form>
             </section>
-
             <p>
-                <button type="submit" id="send"><img src="img/checked.jpg">Send</button>
+                <button type="submit" id="send" @click="addOrder">
+                    <img src="img/checked.jpg"> Send
+                </button>
             </p>
 
+            <section id="summary" v-if="order.info.length !== 0">
+                <h3>Order confirmation</h3>
+                <h4>Customer details</h4>
+                <div class="capitalized" v-for="entry of order.info">
+                    {{show(entry)}}<br>
+                </div>
+                <h4>Order summary</h4>
+                <ul>
+                    <li v-for="item in order.items">{{item}}</li>
+            </section>
         </main>
+
         <hr>
-            <footer>
-                &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
-            </footer>
+        <footer>
+            &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
+        </footer>
     </body>
 </html>
