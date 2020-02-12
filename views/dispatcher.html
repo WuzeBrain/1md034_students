@@ -18,10 +18,17 @@
                 <hr>
             </div>
         </div>
-        <div id="dots">
-            <div v-for="(order, key) in orders"
-            :style="{ left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
+        <div id="map-box">
+            <div id=dot v-for="(order, key) in orders" @click="select(order)"
+            :style="{left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
                 {{ key }}
+            </div>
+            <div id="selected" v-if="selectedOrder !== null"
+            :style="{left: selectedOrder.mapPos.x + 'px', top: selectedOrder.mapPos.y + 'px'}">
+                <div @click="select(null)">
+                    {{ selectedOrder.items.join(", ") }}<br>
+                    <span id="customer-info">{{ formatInfo(selectedOrder.info) }}</span>
+                </div>
             </div>
         </div>
     </div>

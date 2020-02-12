@@ -26,5 +26,9 @@ const vm = new Vue({
 
     methods: {
         formatInfo: (info) => info.fullname + " (" + info.email + ", " + info.payment + ", " + info.gender + ")",
+
+        select: function(order) {
+            this.selectedOrder = this.selectedOrder !== order ? order : null;
+        },
     }
 });

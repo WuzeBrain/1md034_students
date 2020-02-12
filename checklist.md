@@ -93,4 +93,4 @@ Add the following style/behaviour to your website (mostly in style.css but also 
 - [X] Display multiple orders on the customer page
 - [ ] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
 - [ ] Display the order status to the customer and update it in the customer view if updated by the dispatcher
-- [ ] Find a better visualization for what orders belong to which location on the map
+- [/] Find a better visualization for what orders belong to which location on the map

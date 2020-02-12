@@ -17,7 +17,8 @@ body {
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-#dots {
+
+#map-box {
 	position: relative;
 	margin: 0;
 	padding: 0;
@@ -27,22 +28,44 @@ body {
 	height: 1078px;
 }
 
-#dots div {
+#dot {
 	position: absolute;
 	background-color: black;
 	color: white;
 	border-radius: 10px;
-	width:20px;
-	height:20px;
+	width: 20px;
+	height: 20px;
 	text-align: center;
 }
 
+#dot:hover {
+    cursor: pointer;
+}
+
+
+#orderList, #selected > div {
+    z-index: 2;
+	color: black;
+}
+
 #orderList {
-	top:1em;
-	left:1em;
+	top: 1em;
+	left: 1em;
 	position: absolute;
-	z-index: 2;
-	color:black;
-	background-color: rgba(255,255,255, 0.5);
-	padding: 1em;
+    padding: 1em;
+    background-color: rgba(255,255,255, 0.5);
+}
+
+#selected {
+    position: absolute;
+}
+
+#selected > div {
+    top: -15px;
+    left: 15px;
+    position: relative;
+    padding: 7px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
 }
