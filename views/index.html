@@ -1,121 +1,127 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <title>BUUURGERSSS!!!1!</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="/vue/vue.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="js/menu.js"></script>
-        <script src="js/js_script.js" defer></script>
-        <script src="js/vue_script.js" defer></script>
-    </head>
+<head>
+    <title>BUUURGERSSS!!!1!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="/vue/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script src="js/js_script.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+</head>
 
-    <body>
-        <main>
-            <div id="header">
-                <img src="img/header.jpg">
-                <h1>Welcome to BUUURGERSSS!!!1!</h1>
-            </div>
+<body>
+    <main>
+        <div id="header">
+            <img src="img/header.jpg">
+            <h1>Welcome to BUUURGERSSS!!!1!</h1>
+        </div>
 
-            <section id="selection">
-                <h3>Select burger</h3>
-                We have multiple tasty alternatives
-                <div id="burgers">
-                    <div class="box burger" v-for="b of menu">
-                        <div class="cbox bname">
-                            <input type="checkbox" :id="b.name" :value="b.name" v-model="burgers"></input>
-                            <label :for="b.name">{{b.name}}</label>
-                        </div>
-                        <div class="cbox bimg">
-                            <img :src="b.img" :alt="b.name">
-                        </div>
-                        <div class="box blist">
-                            <ul>
-                                <li>{{b.size}}g</li>
-                                <li>{{b.desc}}</li>
-                                <li>{{b.info}}</li>
-                            </ul>
-                        </div>
+        <section id="selection">
+            <h3>Select burger</h3>
+            We have multiple tasty alternatives
+            <div id="burgers">
+                <div class="box burger" v-for="b of menu">
+                    <div class="cbox bname">
+                        <input type="checkbox" :id="b.name" :value="b.name"
+                        v-model="order.items"></input>
+                        <label :for="b.name">{{ b.name }}</label>
+                    </div>
+                    <div class="cbox bimg">
+                        <img :src="b.img" :alt="b.name">
+                    </div>
+                    <div class="box blist">
+                        <ul>
+                            <li>{{ b.size }}g</li>
+                            <li>{{ b.desc }}</li>
+                            <li>{{ b.info }}</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="order">
-                <h3>Customer Information</h3>
-                Fill in the form below
+        <section id="order">
+            <h3>Customer Information</h3>
+            Fill in the form below
 
-                <form>
-                    <h4>Delivery information:</h4>
+            <form>
+                <h4>Delivery information:</h4>
 
-                    <p>
-                        <label for="fullname">Full name</label><br>
-                        <input type="text" id="fullname" name="fn" v-model="fullname"
-                        required="required" placeholder="First- and Last name">
-                    </p>
-                    <p>
-                        <label for="email">E-mail</label><br>
-                        <input type="email" id="email" name="em" v-model="email"
-                        required="required" placeholder="E-mail address">
-                    </p>
+                <p>
+                    <label for="fullname">Full name</label><br>
+                    <input type="text" id="fullname" name="fn" v-model="order.info.fullname"
+                    required="required" placeholder="First- and Last name">
+                </p>
+                <p>
+                    <label for="email">E-mail</label><br>
+                    <input type="email" id="email" name="em" v-model="order.info.email"
+                    required="required" placeholder="E-mail address">
+                </p>
 
-                    <p>
-                        <label for="payment">Payment options</label><br>
-                        <select id="payment" name="pay" v-model="payment">
-                            <option>Bitcoin</option>
-                            <option>Bitcoin Cash</option>
-                            <option>Ethereum</option>
-                            <option>Monero</option>
-                        </select>
-                    </p>
+                <p>
+                    <label for="payment">Payment options</label><br>
+                    <select id="payment" name="pay" v-model="order.info.payment">
+                        <option>Bitcoin</option>
+                        <option>Bitcoin Cash</option>
+                        <option>Ethereum</option>
+                        <option>Monero</option>
+                    </select>
+                </p>
 
-                    <p>
-                        <input type="radio" id="female" name="ge"
-                        v-model="gender" value="Female">
-                        <label for="female">Female</label><br>
-                        <input type="radio" id="male" name="ge"
-                        v-model="gender" value="Male">
-                        <label for="male">Male</label><br>
-                        <input type="radio" id="undisclosed" name="ge"
-                        v-model="gender" value="Undisclosed">
-                        <label for="undisclosed">Undisclosed</label><br>
-                    </p>
-                    
-                    <p>
-                        Please mark your desired delivery location on the map
-                        <div id="map-box">
-                            <div @click="displayOrder">
-                                <div :style="{left: order.details.x + 'px', top: order.details.y + 'px'}">
-                                    T
-                                </div>
+                <p>
+                    <input type="radio" id="female" name="ge"
+                    v-model="order.info.gender" value="Female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="male" name="ge"
+                    v-model="order.info.gender" value="Male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="undisclosed" name="ge"
+                    v-model="order.info.gender" value="Undisclosed">
+                    <label for="undisclosed">Undisclosed</label><br>
+                </p>
+
+                <p>
+                    Please mark your desired delivery location on the map
+                    <div id="map-box">
+                        <div @click="updateMapPos">
+                            <div v-if="order.mapPos != null"
+                            :style="{left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
+                            T
                             </div>
                         </div>
-                    </p>
+                    </div>
+                </p>
 
-                </form>
-            </section>
-            <p>
-                <button type="submit" id="send" @click="addOrder">
-                    <img src="img/checked.jpg"> Send
-                </button>
-            </p>
+            </form>
+        </section>
+        <p>
+            <button type="submit" id="send" @click="addOrder">
+                <img src="img/checked.jpg"> Send
+            </button>
+            <span id="missing" v-if="missing"> Missing information!</span>
+        </p>
 
-            <section id="summary" v-if="order.info.length !== 0">
-                <h3>Order confirmation</h3>
+        <section id="summary" v-if="pastOrders.length !== 0">
+            <h3>Order confirmation</h3>
+            <div v-for="x in pastOrders">
+                <hr>
                 <h4>Customer details</h4>
-                <div class="capitalized" v-for="entry of order.info">
-                    {{show(entry)}}<br>
+                <div class="capitalized" v-for="(val, key) of x.info">
+                    {{ key }}: {{ val }}<br>
                 </div>
                 <h4>Order summary</h4>
                 <ul>
-                    <li v-for="item in order.items">{{item}}</li>
-            </section>
-        </main>
+                    <li v-for="item in x.items">{{ item }}</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-        <hr>
-        <footer>
-            &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
-        </footer>
-    </body>
+    <hr>
+    <footer>
+        &copy; 2020 BuRRRRRRRRRRRRRRgers Inc.
+    </footer>
+</body>
 </html>

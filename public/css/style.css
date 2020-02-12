@@ -133,6 +133,7 @@ footer {
     border: 2px dashed black;
 }
 
+
 #send {
     margin: 20px 10px;
     font-weight: bold;
@@ -143,6 +144,11 @@ footer {
     height: 1em;
 }
 
+#missing {
+    color: red;
+    font-size: 120%;
+    font-weight: bold;
+}
 
 #summary {
     border: 2px dashed grey;
