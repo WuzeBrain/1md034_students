@@ -55,6 +55,7 @@ const vm = new Vue({
                 this.pastOrders.push(this.order);
                 this.order = new Order();
             }
+            this.missing = !fin;
         },
 
         updateMapPos: function(event) {

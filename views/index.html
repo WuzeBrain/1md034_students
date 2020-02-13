@@ -46,7 +46,7 @@
             <h3>Customer Information</h3>
             Fill in the form below
 
-            <form @submit.prevent="addOrder">
+            <form @submit.prevent>
                 <h4>Delivery information:</h4>
 
                 <p>
@@ -95,7 +95,7 @@
                 </p>
 
                 <p>
-                    <button type="submit" id="send" @click="submit">
+                    <button type="submit" id="send" @click="addOrder">
                         <img src="img/checked.jpg"> Send
                     </button>
                     <span id="missing" v-if="missing && !order.finished()"> Missing information!</span>
