@@ -46,17 +46,17 @@
             <h3>Customer Information</h3>
             Fill in the form below
 
-            <form>
+            <form @submit.prevent="addOrder">
                 <h4>Delivery information:</h4>
 
                 <p>
                     <label for="fullname">Full name</label><br>
-                    <input type="text" id="fullname" name="fn" v-model="order.info.fullname"
+                    <input type="text" id="fullname" name="fn" v-model.trim="order.info.fullname"
                     required="required" placeholder="First- and Last name">
                 </p>
                 <p>
                     <label for="email">E-mail</label><br>
-                    <input type="email" id="email" name="em" v-model="order.info.email"
+                    <input type="email" id="email" name="em" v-model.trim="order.info.email"
                     required="required" placeholder="E-mail address">
                 </p>
 
@@ -84,7 +84,7 @@
 
                 <p>
                     Please mark your desired delivery location on the map
-                    <div id="map-box">
+                    <div id="map-box" :class="{normalborder: !mapMissing, errorborder: mapMissing}">
                         <div @click="updateMapPos">
                             <div v-if="order.mapPos != null"
                             :style="{left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
@@ -94,14 +94,14 @@
                     </div>
                 </p>
 
+                <p>
+                    <button type="submit" id="send" @click="submit">
+                        <img src="img/checked.jpg"> Send
+                    </button>
+                    <span id="missing" v-if="missing && !order.finished()"> Missing information!</span>
+                </p>
             </form>
         </section>
-        <p>
-            <button type="submit" id="send" @click="addOrder">
-                <img src="img/checked.jpg"> Send
-            </button>
-            <span id="missing" v-if="missing"> Missing information!</span>
-        </p>
 
         <section id="summary" v-if="pastOrders.length !== 0">
             <h3>Order confirmation</h3>

@@ -15,15 +15,10 @@ class Order {
         };
     }
     finished() {
-        if (this.mapPos === null || this.items.length === 0) {
-            return false;
-        }
-        for (let val of Object.values(this.info)) {
-            if (val === "") {
-                return false;
-            }
-        }
-        return true;
+        return this.mapPos !== null
+            && this.items.length !== 0
+            && this.info.fullname !== ""
+            && /\S+@\S+/.test(this.info.email)
     }
 }
 
@@ -37,10 +32,20 @@ const vm = new Vue({
         menu: food,
         order: new Order(),
         pastOrders: [],
-        missing: false
+        missing: false,
+    },
+
+    computed: {
+        mapMissing: function() {
+            return this.missing & this.order.mapPos === null;
+        }
     },
 
     methods: {
+
+        submit: function() {
+            this.missing = !this.order.finished();
+        },
 
         addOrder: function() {
             /* Send the current order to the server */
@@ -50,7 +55,6 @@ const vm = new Vue({
                 this.pastOrders.push(this.order);
                 this.order = new Order();
             }
-            this.missing = !fin;
         },
 
         updateMapPos: function(event) {
@@ -63,6 +67,6 @@ const vm = new Vue({
                 x: event.clientX - 10 - offset.x,
                 y: event.clientY - 10 - offset.y,
             };
-        }
+        },
     },
 });
