@@ -38,7 +38,7 @@ body {
 	text-align: center;
 }
 
-#dot:hover {
+#dot:hover, button:hover {
     cursor: pointer;
 }
 

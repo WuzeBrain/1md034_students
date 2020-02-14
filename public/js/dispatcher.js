@@ -46,26 +46,12 @@ const vm = new Vue({
 
         changeState: function(id) {
             /* Change the state of an order to the next one */
-            if (this.states[id] == 2) {
-                this.deleteOrder(id);
-            } else {
-                this.states[id]++;
-            }
+            socket.emit('changeState', id);
         },
 
         select: function(order) {
             /* Mark an order as selected or unmark it if it is already selected */
             this.selectedOrder = this.selectedOrder !== order ? order : null;
-            console.log(this.selectedOrder);
         },
-
-        deleteOrder: function(id) {
-            /* Delete an order and update the order list */
-            // a bit hacky but it works
-            let t = this.orders;
-            this.orders = null;
-            delete t[id];
-            this.orders = t;
-        }
     }
 });

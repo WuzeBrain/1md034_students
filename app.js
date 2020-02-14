@@ -44,7 +44,7 @@ class Data {
         // Store the order in an "associative array" with orderId as key
         this.orders[this.orderId] = order;
         this.states[this.orderId] = 0;
-        this.orderId++;
+        return this.orderId++;
     }
     getAllOrders() {
         return {
@@ -62,15 +62,35 @@ io.on('connection', function(socket) {
 
     // When a connected client emits an "addOrder" message
     socket.on('addOrder', function(order) {
-        data.addOrder(order);
+        let orderId = data.addOrder(order);
         // send updated info to all connected clients,
         // note the use of io instead of socket
-        io.emit('currentQueue', {
-            orders: data.orders,
-            states: data.states
-        });
-    });
+        emitQueue();
+        socket.emit('orderAdded', {
+            order: order,
+            orderId: orderId,
+        })
+    }.bind(this));
+
+    socket.on('changeState', function(id) {
+        /* Change the state of an order to the next one */
+        let state = data.states[id];
+        if (state == 2) {
+            delete data.orders[id];
+        } else {
+            data.states[id]++;
+        }
+        emitQueue();
+        io.emit('nextState', id);
+    }.bind(this));
 });
+
+function emitQueue() {
+    io.emit('currentQueue', {
+        orders: data.orders,
+        states: data.states,
+    });
+}
 
 /* eslint-disable-next-line no-unused-vars */
 const server = http.listen(app.get('port'), function() {

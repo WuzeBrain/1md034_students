@@ -103,9 +103,9 @@
             </form>
         </section>
 
-        <section id="summary" v-if="pastOrders.length !== 0">
+        <section id="summary" v-if="pastOrders">
             <h3>Order confirmation</h3>
-            <div v-for="x in pastOrders">
+            <div v-for="(x, id) in pastOrders">
                 <hr>
                 <h4>Customer details</h4>
                 <div class="capitalized" v-for="(val, key) of x.info">
@@ -115,6 +115,7 @@
                 <ul>
                     <li v-for="item in x.items">{{ item }}</li>
                 </ul>
+                Status: {{ stateName(id) }}
             </div>
         </section>
     </main>
