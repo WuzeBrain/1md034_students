@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DELI-VERY DISPATCHER</title>
-  <link rel="stylesheet" href="css/deli-very.css">
-  <script src="/vue/vue.js" defer></script>
-  <script src="/socket.io/socket.io.js" defer></script>
-  <script src="js/dispatcher.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DELI-VERY DISPATCHER</title>
+    <link rel="stylesheet" href="css/deli-very.css">
+    <script src="/vue/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/dispatcher.js" defer></script>
 </head>
+
 <body>
-  <div id="orders">
-    <div id="orderList">
-      <div v-for="(order, key) in orders">
-        #{{ key }}: {{ order.orderItems.join(", ") }}<br>
-        <span id="customer-info">{{ formatInfo(order.customerInfo) }}</span>
-        <hr>
-      </div>
-    </div>
-    <div id="dots">
-        <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-          {{ key }}
+    <div id="orders">
+        <div id="orderList">
+            <div v-for="(order, id) in orders">
+                <div>
+                    <button type="button" @click="changeState(id)">{{ stateName(id) }}</button>
+                    <div id="orderListItem">
+                        #{{ id }}: {{ order.items.join(", ") }}<br>
+                        <span id="customer-info">{{ formatInfo(order.info) }}</span>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div id="map-box">
+            <div id=dot v-for="(order, key) in orders" @click="select(order)"
+            :style="{left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
+                {{ key }}
+            </div>
+
+            <div id="selected" v-if="selectedOrder !== null"
+            :style="{left: selectedOrder.mapPos.x + 'px', top: selectedOrder.mapPos.y + 'px'}">
+                <div @click="select(null)">
+                    {{ selectedOrder.items.join(", ") }}<br>
+                    <span id="customer-info">{{ formatInfo(selectedOrder.info) }}</span>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
 </body>
 </html>

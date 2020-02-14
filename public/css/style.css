@@ -17,6 +17,7 @@ button:hover {
 }
 
 footer {
+    font-family: "Arial", sans-serif;
     margin-left: 5px;
 }
 
@@ -103,7 +104,6 @@ footer {
 	width: 90%;
 	height: 50vh;
 	overflow: scroll;
-	border: 1px solid rgba(0,0,0,0.4);
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -123,18 +123,27 @@ footer {
 	background-color: black;
 	color: white;
 	border-radius: 10px;
-	width:20px;
-	height:20px;
+	width: 20px;
+	height: 20px;
 	text-align: center;
 }
 
+.normalborder {
+    margin: 4px 3px;
+	border: 1px solid rgba(0,0,0,0.4);
+}
+
+.errorborder {
+    border: 4px groove rgba(191, 0, 0, 0.7);
+}
 
 #order {
     border: 2px dashed black;
 }
 
+
 #send {
-    margin: 20px 10px;
+    margin-top: 20px;
     font-weight: bold;
     font-size: 110%;
 }
@@ -143,6 +152,10 @@ footer {
     height: 1em;
 }
 
+#missing {
+    color: red;
+    font-weight: bold;
+}
 
 #summary {
     border: 2px dashed grey;
