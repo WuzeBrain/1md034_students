@@ -53,8 +53,25 @@ body {
 	left: 1em;
 	position: absolute;
     padding: 1em;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(255,255,255, 0.6);
+    border: 1px solid silver;
 }
+
+#orderList > div > div {
+    display: grid;
+    grid-template-columns: 60px auto;
+}
+
+#orderListItem {
+    grid-column: 2;
+    align-self: left;
+}
+
+button {
+    width: 50px;
+    height: 40px;
+}
+
 
 #selected {
     position: absolute;

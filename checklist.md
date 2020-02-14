@@ -91,6 +91,6 @@ Add the following style/behaviour to your website (mostly in style.css but also 
 - [X] Set the orderID on the server side so that multiple customers can add orders
 - [X] Only allow the order to be sent if all necessary information is provided
 - [X] Display multiple orders on the customer page
-- [ ] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
+- [X] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
 - [ ] Display the order status to the customer and update it in the customer view if updated by the dispatcher
 - [/] Find a better visualization for what orders belong to which location on the map

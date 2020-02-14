@@ -43,10 +43,6 @@ const vm = new Vue({
 
     methods: {
 
-        submit: function() {
-            this.missing = !this.order.finished();
-        },
-
         addOrder: function() {
             /* Send the current order to the server */
             let fin = this.order.finished();
@@ -59,7 +55,7 @@ const vm = new Vue({
         },
 
         updateMapPos: function(event) {
-            /* ... */
+            /* Update the saved map position to the postition of the click */
             let offset = {
                 x: event.currentTarget.getBoundingClientRect().left,
                 y: event.currentTarget.getBoundingClientRect().top,

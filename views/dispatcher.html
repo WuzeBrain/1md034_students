@@ -9,20 +9,28 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="js/dispatcher.js" defer></script>
 </head>
+
 <body>
     <div id="orders">
         <div id="orderList">
-            <div v-for="(order, key) in orders">
-                #{{ key }}: {{ order.items.join(", ") }}<br>
-                <span id="customer-info">{{ formatInfo(order.info) }}</span>
+            <div v-for="(order, id) in orders">
+                <div>
+                    <button type="button" @click="changeState(id)">{{ stateName(id) }}</button>
+                    <div id="orderListItem">
+                        #{{ id }}: {{ order.items.join(", ") }}<br>
+                        <span id="customer-info">{{ formatInfo(order.info) }}</span>
+                    </div>
+                </div>
                 <hr>
             </div>
         </div>
+
         <div id="map-box">
             <div id=dot v-for="(order, key) in orders" @click="select(order)"
             :style="{left: order.mapPos.x + 'px', top: order.mapPos.y + 'px'}">
                 {{ key }}
             </div>
+
             <div id="selected" v-if="selectedOrder !== null"
             :style="{left: selectedOrder.mapPos.x + 'px', top: selectedOrder.mapPos.y + 'px'}">
                 <div @click="select(null)">
